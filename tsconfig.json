@@ -21,7 +21,8 @@
     "baseUrl": ".",
     "paths": {
       "contentlayer/generated": ["./.contentlayer/generated"],
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/data/*": ["data/*"]
     }
   },
   "include": [
