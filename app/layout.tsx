@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ThemeProviders } from './theme-providers'
+import siteMetadata from '@/data/siteMetadata'
+import ThemeSwitch from '@/components/theme-switch';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,11 +15,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang={siteMetadata.locale} suppressHydrationWarning>
       <body
         className={`antialiased`}
       >
-        {children}
+        <ThemeProviders>
+          <header className="flex justify-end">
+            <ThemeSwitch />
+          </header>
+          {children}
+        </ThemeProviders>
       </body>
     </html>
   );

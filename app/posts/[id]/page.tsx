@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import dayjs from "dayjs";
 import siteMetadata from '@/data/siteMetadata'
 import { Metadata } from 'next';
-import { MDXContent } from "../../_components/mdx-content";
+import { MDXContent } from "@/components/mdx-content";
 
 type Props = {
   params: Promise<{ id: string }>
@@ -68,12 +68,12 @@ const Page = async ({ params }: Props) => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <article className="mx-auto max-w-xl py-8 prose prose-slate">
+      <article className="mx-auto max-w-xl py-8 prose prose-slate dark:prose-invert">
         <div className="mb-8 text-center">
-          <time dateTime={post.date} className="mb-1 text-xs text-gray-600">
+          <time dateTime={post.date} className="mb-1 text-xs text-gray-600 dark:text-white">
             {dayjs(post.date).format('DD/MM/YYYY')}
           </time>
-          <h1 className="text-3xl font-bold">{post.title}</h1>
+          <h1 className="text-3xl font-bold dark:text-white">{post.title}</h1>
         </div>
         <MDXContent code={post.body.code} />
       </article>
