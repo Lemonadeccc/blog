@@ -5,6 +5,7 @@ nixPkgs = ["nodejs_22", "pnpm"]
 
 [phases.install]
 cmds = ["pnpm install --frozen-lockfile"]
+cacheDirectories = ["/root/.local/share/pnpm/store"]
 
 [phases.build]
 cmds = ["pnpm run build"]
